@@ -45,7 +45,7 @@ internal class PrintGrid
         var sortedY = coordinateList.Select(p => p.Item2)
             .Distinct().OrderByDescending(y => y).ToList(); 
 
-        var grid = new Tuple<double, double>[(int)dimension, (int)dimension]; 
+        var grid = new Tuple<double, double>[(int)dimension, (int)dimension];
 
         foreach (var coor in coordinateList)
         {
@@ -55,27 +55,35 @@ internal class PrintGrid
         }
 
         // ----- Output rows -----
-        for (int row = 0; row < 3; row++)
+        for (int row = 0; row < dimension; row++)
         {
             Console.Write($"Row {row}: ");
-            for (int col = 0; col < 3; col++)
+            for (int col = 0; col < dimension; col++)
             {
-                Console.Write($"{grid[row, col].Item1},{grid[row, col].Item2}");
-                if (col < 2) Console.Write(" – ");
+                var point = grid[row, col];
+                Console.Write($"{point.Item1},{point.Item2}");
+                if (col < dimension - 1)
+                {
+                    Console.Write(Constants.DASH);
+                }
             }
-            Console.WriteLine();
+            Console.WriteLine("");
         }
 
         // ----- Output columns -----
-        for (int col = 0; col < 3; col++)
+        for (int col = 0; col < dimension; col++)
         {
             Console.Write($"Col {col}: ");
-            for (int row = 0; row < 3; row++)
+            for (int row = 0; row < dimension; row++)
             {
-                Console.Write($"{grid[row, col].Item1},{grid[row, col].Item2}");
-                if (row < 2) Console.Write(" – ");
+                var point = grid[row, col];
+                Console.Write($"{point.Item1},{point.Item2}");
+                if (row < dimension - 1)
+                {
+                    Console.Write(Constants.DASH);
+                }
             }
-            Console.WriteLine();
+            Console.WriteLine("");
         }
 
         Console.WriteLine($"Alpha=0.0 degrees");
