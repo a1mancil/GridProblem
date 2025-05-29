@@ -60,8 +60,7 @@ internal class PrintGrid
             Console.Write($"Row {row}: ");
             for (int col = 0; col < dimension; col++)
             {
-                var point = grid[row, col];
-                Console.Write($"{point.Item1},{point.Item2}");
+                Console.Write($"{grid[row, col].Item1},{grid[row, col].Item2}");
                 if (col < dimension - 1)
                 {
                     Console.Write(Constants.DASH);
@@ -76,8 +75,7 @@ internal class PrintGrid
             Console.Write($"Col {col}: ");
             for (int row = 0; row < dimension; row++)
             {
-                var point = grid[row, col];
-                Console.Write($"{point.Item1},{point.Item2}");
+                Console.Write($"{grid[row, col].Item1},{grid[row, col].Item2}");
                 if (row < dimension - 1)
                 {
                     Console.Write(Constants.DASH);
