@@ -14,7 +14,7 @@
 
 1. Execute the program with any text file e.g.:
     ```bash
-    dotnet run -- grid_input.txt
+    dotnet run -- grid_input3x3.txt
     ```
 
 2. Follow the on-screen instructions to interact with the program.
